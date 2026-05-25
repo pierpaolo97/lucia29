@@ -168,12 +168,8 @@ h1 {
 }
 
 .toast {
-  position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 9999;
-
+  animation: none;
   width: min(90vw, 360px);
 
   padding: 16px 20px;
@@ -193,8 +189,15 @@ h1 {
     0 10px 30px rgba(0,0,0,0.4);
 
   backdrop-filter: blur(8px);
+}
 
-  animation: toastPop 0.22s ease;
+.toast-container {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
 }
 
 @keyframes toastPop {
@@ -207,4 +210,48 @@ h1 {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
   }
+}
+
+.intro {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.intro-card {
+  width: min(92vw, 420px);
+  padding: 24px 20px;
+  border: 3px solid #ffdf6c;
+  border-radius: 22px;
+  background: rgba(30, 15, 60, 0.92);
+  box-shadow: 0 0 30px rgba(255, 223, 108, 0.35);
+}
+
+.intro-card h2 {
+  margin-top: 0;
+  color: #ffdf6c;
+}
+
+.objects {
+  font-size: 34px;
+  letter-spacing: 4px;
+}
+
+.start-button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 18px;
+  background: #ff4ecd;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 6px 0 #9b1b7a;
+}
+
+.start-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #9b1b7a;
 }
