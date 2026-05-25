@@ -38,8 +38,6 @@ let player = { x: 1, y: 1 };
 let collected = 0;
 const totalItems = Object.keys(items).length;
 
-let message = 'Raccogli tutti gli oggetti e raggiungi il regalo 🎁';
-let showToast = false;
 let toastTimer = null;
 let gameStarted = false;
 let isShaking = false;
@@ -141,30 +139,31 @@ window.move = function(dx, dy) {
   }
 
   const next = maze[ny][nx];
+
+  if (next === 'G' && collected < totalItems) {
+    triggerToast('Non fare la furba, prima devi raccogliere tutti gli oggetti.', 1600);
+    return;
+  }
+
   player = { x: nx, y: ny };
 
   if (items[next]) {
     collected++;
     maze[ny][nx] = '.';
     vibrate(120);
+    render();
     triggerToast(items[next].msg, 2200);
     return;
   }
 
   if (next === 'G') {
-    if (collected === totalItems) {
-      vibrate([120, 60, 120, 60, 240]);
-      showFinalScreen();
-      return;
-    }
-
-    triggerToast('Non fare la furba, prima devi raccogliere tutti gli oggetti.', 1600);
+    vibrate([120, 60, 120, 60, 240]);
+    showFinalScreen();
     return;
   }
 
   render();
 };
-
 function showFinalScreen() {
   app.innerHTML = `
     <main class="final">
