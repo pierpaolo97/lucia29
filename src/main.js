@@ -4,8 +4,8 @@ const app = document.querySelector('#app');
 
 const items = {
   C: { emoji: '🕯️', name: 'Candelina', msg: '+1 anno di caos' },
-  P: { emoji: '🥞', name: 'Pancake', msg: 'Brunch energy detected' },
-  T: { emoji: '🚜', name: 'Trattore', msg: 'Campagnolità aumentata' },
+  P: { emoji: '🥞', name: 'Pancake', msg: 'Unico nutrimento consenito' },
+  T: { emoji: '🚜', name: 'Trattore', msg: 'Hai trovato Antonio!' },
   D: { emoji: '🦷', name: 'Dentino', msg: 'Paziente salvato, forse' },
   S: { emoji: '🍹', name: 'Spritz', msg: 'Social battery restored' },
 };
@@ -89,7 +89,7 @@ window.move = function(dx, dy) {
     nx >= maze[ny].length ||
     maze[ny][nx] === '#'
   ) {
-    message = 'Ahi. Muro.';
+    message = 'Ahi. Anche le dottoresse (s)battono.';
     render();
     return;
   }
@@ -129,3 +129,19 @@ window.addEventListener('keydown', (e) => {
 });
 
 render();
+
+let lastTouchEnd = 0;
+
+document.addEventListener(
+  'touchend',
+  function (event) {
+    const now = Date.now();
+
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+
+    lastTouchEnd = now;
+  },
+  { passive: false }
+);
