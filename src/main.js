@@ -42,8 +42,8 @@ let message = 'Raccogli tutti gli oggetti e raggiungi il regalo 🎁';
 function render() {
   app.innerHTML = `
     <main>
-      <h1>Lucia 29 Quest</h1>
-      <p class="subtitle">Raccogli i 5 oggetti sacri e sblocca la gift card.</p>
+      <h1>Basic bitch 29</h1>
+      <p class="subtitle">Raccogli i 5 oggetti e sblocca il regalo.</p>
 
       <div class="status">
         <span>Oggetti: ${collected}/${totalItems}</span>
@@ -64,8 +64,12 @@ function render() {
         ).join('')}
       </div>
 
+      <h1>Lucia 29 Quest</h1>
       <p class="message">${message}</p>
-
+      <p class="subtitle">
+        Raccogli i 5 oggetti sacri e sblocca la gift card.
+      </p>
+      
       <div class="controls">
         <button onclick="move(0,-1)">⬆️</button>
         <div>
@@ -116,7 +120,7 @@ window.move = function(dx, dy) {
       return;
     }
 
-    message = 'Prima devi raccogliere tutti gli oggetti sacri.';
+    message = 'Prima devi raccogliere tutti gli oggetti.';
   }
 
   render();
