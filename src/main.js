@@ -101,11 +101,11 @@ function render() {
       </div>
 
       <div class="controls">
-        <button onclick="move(0,-1)">⬆️</button>
+        <button ontouchstart="move(0,-1)">⬆️</button>
         <div>
-          <button onclick="move(-1,0)">⬅️</button>
-          <button onclick="move(0,1)">⬇️</button>
-          <button onclick="move(1,0)">➡️</button>
+          <button ontouchstart="move(-1,0)">⬅️</button>
+          <button ontouchstart="move(0,1)">⬇️</button>
+          <button ontouchstart="move(1,0)">➡️</button>
         </div>
       </div>
     </main>
@@ -214,20 +214,5 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') move(1, 0);
 });
 
-let lastTouchEnd = 0;
-
-document.addEventListener(
-  'touchend',
-  function(event) {
-    const now = Date.now();
-
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault();
-    }
-
-    lastTouchEnd = now;
-  },
-  { passive: false }
-);
 
 render();
