@@ -38,17 +38,21 @@ let player = { x: 1, y: 1 };
 let collected = 0;
 const totalItems = Object.keys(items).length;
 let message = 'Raccogli tutti gli oggetti e raggiungi il regalo 🎁';
+let showToast = false;
+let toastTimer = null;
 
 function render() {
   app.innerHTML = `
     <main>
       <h1>Basic bitch 29</h1>
+
       <p class="subtitle">Raccogli i 5 oggetti e sblocca il regalo.</p>
 
       <div class="status">
         <span>Oggetti: ${collected}/${totalItems}</span>
       </div>
 
+      ${showToast ? `<div class="toast">${message}</div>` : ''}
       <div class="maze">
         ${maze.map((row, y) =>
           row.map((cell, x) => {
@@ -63,13 +67,6 @@ function render() {
           }).join('')
         ).join('')}
       </div>
-
-      <p class="subtitle">Raccogli i 5 oggetti sacri e sblocca la gift card.</p>
-      <div class="status">
-        <span>Oggetti: ${collected}/${totalItems}</span>
-      </div>
-      <p class="message">${message}</p>
-      <div class="maze">
 
       <div class="controls">
         <button onclick="move(0,-1)">⬆️</button>
@@ -94,8 +91,7 @@ window.move = function(dx, dy) {
     nx >= maze[ny].length ||
     maze[ny][nx] === '#'
   ) {
-    message = 'Ahi. Anche le dottoresse (s)battono.';
-    render();
+    triggerToast('Ahi. Anche le dottoresse (s)battono.', 1200);
     return;
   }
 
@@ -104,9 +100,9 @@ window.move = function(dx, dy) {
 
   if (items[next]) {
     collected++;
-    message = items[next].msg;
+triggerToast(items[next].msg, 2200);   
     maze[ny][nx] = '.';
-  }
+    }
 
   if (next === 'G') {
     if (collected === totalItems) {
@@ -133,6 +129,22 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') move(1, 0);
 });
 
+function triggerToast(text, duration = 2200) {
+  message = text;
+  showToast = true;
+
+  if (toastTimer) {
+    clearTimeout(toastTimer);
+  }
+
+  toastTimer = setTimeout(() => {
+    showToast = false;
+    toastTimer = null;
+    render();
+  }, duration);
+
+  render();
+}
 render();
 
 let lastTouchEnd = 0;
