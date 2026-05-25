@@ -92,10 +92,6 @@ function render() {
         <span>Oggetti: ${collected}/${totalItems}</span>
       </div>
 
-      <div class="toast-container">
-        ${showToast ? `<div class="toast">${message}</div>` : ''}
-      </div>
-
       <div class="maze ${isShaking ? 'shake' : ''}">        
       ${maze.map((row, y) =>
           row.map((cell, x) => {
@@ -194,20 +190,24 @@ function showFinalScreen() {
 }
 
 function triggerToast(text, duration = 2200) {
-  message = text;
-  showToast = true;
+  let toastContainer = document.querySelector('.toast-container');
+
+  if (!toastContainer) {
+    toastContainer = document.createElement('div');
+    toastContainer.className = 'toast-container';
+    document.body.appendChild(toastContainer);
+  }
+
+  toastContainer.innerHTML = `<div class="toast">${text}</div>`;
 
   if (toastTimer) {
     clearTimeout(toastTimer);
   }
 
   toastTimer = setTimeout(() => {
-    showToast = false;
+    toastContainer.remove();
     toastTimer = null;
-    render();
   }, duration);
-
-  render();
 }
 
 function vibrate(pattern = 100) {
