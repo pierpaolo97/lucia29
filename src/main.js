@@ -64,12 +64,13 @@ function render() {
         ).join('')}
       </div>
 
-      <h1>Lucia 29 Quest</h1>
+      <p class="subtitle">Raccogli i 5 oggetti sacri e sblocca la gift card.</p>
+      <div class="status">
+        <span>Oggetti: ${collected}/${totalItems}</span>
+      </div>
       <p class="message">${message}</p>
-      <p class="subtitle">
-        Raccogli i 5 oggetti sacri e sblocca la gift card.
-      </p>
-      
+      <div class="maze">
+
       <div class="controls">
         <button onclick="move(0,-1)">⬆️</button>
         <div>
