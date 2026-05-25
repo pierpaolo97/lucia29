@@ -6,7 +6,7 @@ const items = {
   C: { emoji: '🎂', name: 'Candelina', msg: '+1 anno di caos' },
   P: { emoji: '🥞', name: 'Pancake', msg: 'Unico nutrimento consentito' },
   T: { emoji: '🧑🏻‍🌾', name: 'Trattore', msg: 'Hai trovato Antonio versione contadina del weekend!' },
-  D: { emoji: '🦷', name: 'Dentino', msg: 'Paziente salvato, forse' },
+  D: { emoji: '🦷', name: 'Dentino', msg: 'Non era meglio estrarlo questo 27 cariato?' },
   S: { emoji: '🍹', name: 'Spritz', msg: 'Pronta per il Pink Spritz al The Botanist' },
 };
 
@@ -162,7 +162,7 @@ window.move = function(dx, dy) {
       return;
     }
 
-    triggerToast('Prima devi raccogliere tutti gli oggetti.', 1600);
+    triggerToast('Non fare la furba, prima devi raccogliere tutti gli oggetti.', 1600);
     return;
   }
 

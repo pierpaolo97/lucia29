@@ -168,47 +168,50 @@ h1 {
 }
 
 .toast {
-  z-index: 9999;
-  animation: none;
-  width: min(90vw, 360px);
+  width: min(82vw, 340px);
 
-  padding: 16px 20px;
+  padding: 18px 22px;
 
   background: rgba(30, 15, 60, 0.96);
   border: 3px solid #ffdf6c;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
   color: #fff4b2;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
 
   box-shadow:
-    0 0 25px rgba(255, 223, 108, 0.45),
-    0 10px 30px rgba(0,0,0,0.4);
+    0 0 30px rgba(255, 223, 108, 0.45),
+    0 14px 40px rgba(0,0,0,0.45);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+
+  animation: toastPop 0.18s ease;
 }
 
 .toast-container {
   position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
   z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   pointer-events: none;
 }
 
 @keyframes toastPop {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-12px) scale(0.95);
+    transform: scale(0.9);
   }
 
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
