@@ -255,14 +255,15 @@ h1 {
   transform: translateY(4px);
   box-shadow: 0 2px 0 #9b1b7a;
 }
+
 .maze.shake {
   animation: shake 0.25s linear;
 }
 
 @keyframes shake {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  50% { transform: translateX(4px); }
-  75% { transform: translateX(-4px); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
   100% { transform: translateX(0); }
 }

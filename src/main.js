@@ -42,6 +42,17 @@ let message = 'Raccogli tutti gli oggetti e raggiungi il regalo 🎁';
 let showToast = false;
 let toastTimer = null;
 let gameStarted = false;
+let isShaking = false;
+
+function shakeMaze() {
+  isShaking = true;
+  render();
+
+  setTimeout(() => {
+    isShaking = false;
+    render();
+  }, 260);
+}
 
 function render() {
   if (!gameStarted) {
@@ -85,7 +96,8 @@ function render() {
         ${showToast ? `<div class="toast">${message}</div>` : ''}
       </div>
 
-      <div class="maze ${showToast && message.includes('sbattono') ? 'shake' : ''}">        ${maze.map((row, y) =>
+      <div class="maze ${isShaking ? 'shake' : ''}">        
+      ${maze.map((row, y) =>
           row.map((cell, x) => {
             let content = '';
 
@@ -127,7 +139,7 @@ window.move = function(dx, dy) {
     nx >= maze[ny].length ||
     maze[ny][nx] === '#'
   ) {
-    vibrate([60, 40, 60]);
+    shakeMaze();
     triggerToast('Ahi. Anche le dottoresse (s)battono.', 1200);
     return;
   }
