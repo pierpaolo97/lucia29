@@ -104,6 +104,9 @@ h1 {
   color: white;
   box-shadow: 0 5px 0 #9b1b7a;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .controls button:active {
