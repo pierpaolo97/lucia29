@@ -85,8 +85,7 @@ function render() {
         ${showToast ? `<div class="toast">${message}</div>` : ''}
       </div>
 
-      <div class="maze">
-        ${maze.map((row, y) =>
+      <div class="maze ${showToast && message.includes('sbattono') ? 'shake' : ''}">        ${maze.map((row, y) =>
           row.map((cell, x) => {
             let content = '';
 
