@@ -188,7 +188,7 @@ function showFinalScreen() {
       </a>
       <p class="subtitle">
         Ora goditi il regalo, basica! <br>
-        Da: Pierpaolo, Paolo e Isabella
+        Da: Pierpaolo, Paola e Isabella
       </p>
     </main>
   `;
