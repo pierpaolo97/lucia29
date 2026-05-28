@@ -270,3 +270,36 @@ h1 {
   75% { transform: translateX(-6px); }
   100% { transform: translateX(0); }
 }
+
+.gift-button {
+  display: inline-block;
+
+  margin-top: 15px;
+  padding: 18px 28px;
+  margin-bottom: 15px;
+
+  background: linear-gradient(135deg, #ff4ecd, #ffdf6c);
+  color: #130f40;
+
+  border-radius: 20px;
+
+  font-size: 22px;
+  font-weight: 900;
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    0 0 25px rgba(255, 223, 108, 0.45);
+
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.gift-button:active {
+  transform: scale(0.96);
+}
+
+.gift-button:hover {
+  transform: translateY(-2px);
+}

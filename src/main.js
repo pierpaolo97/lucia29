@@ -179,10 +179,16 @@ function showFinalScreen() {
         e hai sbloccato il regalo. Siamo tutti molto fieri di te.
       </p>
 
-      <div class="gift">CODICE-GIFT-CARD-QUI</div>
-
+      <a 
+        class="gift-button"
+        href="https://drive.google.com/drive/folders/1cS0g2n-ycwYKf7RbXcbHBJDYt1nYBGOD?usp=share_link"
+        target="_blank"
+      >
+        🎁 Apri il regalo
+      </a>
       <p class="subtitle">
         Ora goditi il regalo, basica!
+        Da: Pierpaolo, Paolo e Isabella
       </p>
     </main>
   `;
