@@ -187,7 +187,7 @@ function showFinalScreen() {
         🎁 Apri il regalo
       </a>
       <p class="subtitle">
-        Ora goditi il regalo, basica!
+        Ora goditi il regalo, basica! <br>
         Da: Pierpaolo, Paolo e Isabella
       </p>
     </main>
